@@ -11,11 +11,16 @@ spec:
       count: 1                                 #number of control plane nodes
       class: impactor                #vmclass for control plane nodes
       storageClass: vsan-default-storage-policy          #storageclass for control plane
+      volumes:
+        - name: containerd
+          mountPath: /var/lib/containerd
+          capacity:
+            storage: 64Gi     
     workers:
       count: 3                                 #number of worker nodes
       class: napp-advanced                #vmclass for worker nodes
       storageClass: vsan-default-storage-policy         #storageclass for worker nodes
-      volumes: 
+      volumes:
         - name: containerd
           mountPath: /var/lib/containerd
           capacity:
