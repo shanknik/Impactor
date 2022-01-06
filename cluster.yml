@@ -15,3 +15,8 @@ spec:
       count: 3                                 #number of worker nodes
       class: napp-advanced                #vmclass for worker nodes
       storageClass: vsan-default-storage-policy         #storageclass for worker nodes
+      volumes: 
+        - name: containerd
+          mountPath: /var/lib/containerd
+          capacity:
+            storage: 64Gi     
